@@ -768,7 +768,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
                 function ($rfs) use ($key) {
                     $this->assertAttributeContains(
                         "&license_key=$key",
-                        'acfFileUrl',
+                        'wpuFileUrl',
                         $rfs
                     );
                     return true;
@@ -858,7 +858,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
                 function ($rfs) use ($key) {
                     $this->assertAttributeContains(
                         "&license_key=$key",
-                        'acfFileUrl',
+                        'wpuFileUrl',
                         $rfs
                     );
                     return true;
@@ -952,7 +952,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
                 function ($rfs) use ($key) {
                     $this->assertAttributeContains(
                         "&license_key=$key",
-                        'acfFileUrl',
+                        'wpuFileUrl',
                         $rfs
                     );
                     return true;
@@ -1004,7 +1004,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
         $plugin->addKey($event);
     }
 
-    public function testOnlyAddKeyOnAcfUrl()
+    public function testOnlyAddKeyOnWpuUrl()
     {
         // Make key available in the ENVIRONMENT
         putenv(self::KEY_ENV_VARIABLE . '=KEY');

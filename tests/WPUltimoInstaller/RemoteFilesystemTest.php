@@ -21,10 +21,10 @@ class RemoteFilesystemTest extends \PHPUnit_Framework_TestCase
     }
 
     // Inspired by testCopy of Composer
-    public function testCopyUsesAcfFileUrl()
+    public function testCopyUsesWpuFileUrl()
     {
-        $acfFileUrl = 'file://'.__FILE__;
-        $rfs = new RemoteFilesystem($acfFileUrl, $this->io);
+        $wpuFileUrl = 'file://'.__FILE__;
+        $rfs = new RemoteFilesystem($wpuFileUrl, $this->io);
         $file = tempnam(sys_get_temp_dir(), 'pb');
 
         $this->assertTrue(
