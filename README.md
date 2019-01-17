@@ -9,8 +9,7 @@ It reads your :key: WP-ULTIMO key from the **environment** or a **.env file**.
 
 ## Usage
 
-**1. Add the package repository to the [`repositories`][composer-repositories] field in `composer.json` 
-   (based on this [gist][package-gist]):**
+**1. Add the package repository to the [`repositories`][composer-repositories] field in `composer.json`:**
 
 ```json
 {
