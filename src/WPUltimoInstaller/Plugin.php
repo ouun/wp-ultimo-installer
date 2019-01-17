@@ -36,14 +36,12 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     /**
      * The name of the WP ULTIMO package
      */
-    const WP_ULTIMO_PACKAGE_NAME =
-    'wp-ultimo/wp-ultimo';
+    const WP_ULTIMO_PACKAGE_NAME = 'wp-ultimo/wp-ultimo';
 
     /**
      * The url where WP ULTIMO can be downloaded (without version and key)
      */
-    const WP_ULTIMO_PACKAGE_URL =
-    'https://nextpress.co/versions/updates/?action=download&slug=wp-ultimo&license_key=XXXX';
+    const WP_ULTIMO_PACKAGE_URL = 'https://nextpress.co/versions/updates/?action=download&slug=wp-ultimo';
 
     /**
      * @access protected
@@ -140,7 +138,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
             $acfRfs = new RemoteFilesystem(
                 $this->addParameterToUrl(
                     $processedUrl,
-                    'k',
+                    'license_key',
                     $this->getKeyFromEnv()
                 ),
                 $this->io,
@@ -219,7 +217,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      *
      * @access protected
      * @return string The key from the environment
-     * @throws PhilippBaschke\ACFProInstaller\Exceptions\MissingKeyException
+     * @throws WPU\WPUltimoInstaller\Exceptions\MissingKeyException
      */
     protected function getKeyFromEnv()
     {

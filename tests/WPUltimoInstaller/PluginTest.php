@@ -8,8 +8,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
 {
     const REPO_NAME = 'wp-ultimo/wp-ultimo';
     const REPO_TYPE = 'wordpress-plugin';
-    const REPO_URL =
-	    'https://nextpress.co/versions/updates/?action=download&slug=wp-ultimo';
+    const REPO_URL = 'https://nextpress.co/versions/updates/?action=download&slug=wp-ultimo';
     const KEY_ENV_VARIABLE = 'WP_ULTIMO_KEY';
 
     protected function tearDown()
@@ -768,7 +767,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
             ->with($this->callback(
                 function ($rfs) use ($key) {
                     $this->assertAttributeContains(
-                        "&k=$key",
+                        "&license_key=$key",
                         'acfFileUrl',
                         $rfs
                     );
@@ -858,7 +857,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
             ->with($this->callback(
                 function ($rfs) use ($key) {
                     $this->assertAttributeContains(
-                        "&k=$key",
+                        "&license_key=$key",
                         'acfFileUrl',
                         $rfs
                     );
@@ -952,7 +951,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
             ->with($this->callback(
                 function ($rfs) use ($key) {
                     $this->assertAttributeContains(
-                        "&k=$key",
+                        "&license_key=$key",
                         'acfFileUrl',
                         $rfs
                     );
@@ -970,7 +969,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
     {
         // Expect an Exception
         $this->setExpectedException(
-            'PhilippBaschke\ACFProInstaller\Exceptions\MissingKeyException',
+            'WPU\WPUltimoInstaller\Exceptions\MissingKeyException',
             'ACF_PRO_KEY'
         );
 
