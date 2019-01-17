@@ -1,6 +1,6 @@
-<?php namespace PhilippBaschke\ACFProInstaller\Test\Exceptions;
+<?php namespace WPU\WPUltimoInstaller\Test\Exceptions;
 
-use PhilippBaschke\ACFProInstaller\Exceptions\MissingKeyException;
+use WPU\WPUltimoInstaller\Exceptions\MissingKeyException;
 
 class MissingKeyExceptionTest extends \PHPUnit_Framework_TestCase
 {
@@ -9,7 +9,7 @@ class MissingKeyExceptionTest extends \PHPUnit_Framework_TestCase
         $message = 'FIELD';
         $e = new MissingKeyException($message);
         $this->assertEquals(
-            'Could not find a key for ACF PRO. ' .
+            'Could not find a key for WP ULTIMO. ' .
             'Please make it available via the environment variable ' .
             $message,
             $e->getMessage()

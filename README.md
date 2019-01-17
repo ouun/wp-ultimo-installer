@@ -16,15 +16,15 @@ It reads your :key: WP-ULTIMO key from the **environment** or a **.env file**.
 {
   "type": "package",
   "package": {
-    "name": "advanced-custom-fields/advanced-custom-fields-pro",
+    "name": "wp-ultimo/wp-ultimo",
     "version": "*.*.*(.*)",
     "type": "wordpress-plugin",
     "dist": {
       "type": "zip",
-      "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
+      "url": "https://nextpress.co/versions/updates/?action=download&slug=wp-ultimo"
     },
     "require": {
-      "philippbaschke/acf-pro-installer": "^1.0",
+      "ouun/wp-ultimo-installer": "^1.0",
       "composer/installers": "^1.0"
     }
   }
@@ -32,23 +32,21 @@ It reads your :key: WP-ULTIMO key from the **environment** or a **.env file**.
 ```
 Replace `"version": "*.*.*(.*)"` with your desired version.
 
-Replace `"type": "wordpress-plugin"` with `"type": "library"` if you would like to have ACF PRO installed in the `./vendor` directory instead of `./wp-content/plugins`. This may be desireable if for example, you are including ACF PRO in a WordPress theme.
+**2. Make your WP-ULTIMO key available**
 
-**2. Make your ACF PRO key available**
-
-Set the environment variable **`ACF_PRO_KEY`** to your [ACF PRO key][acf-account].
+Set the environment variable **`WP_ULTIMO_KEY`**.
 
 Alternatively you can add an entry to your **`.env`** file:
 
 ```ini
 # .env (same directory as composer.json)
-ACF_PRO_KEY=Your-Key-Here
+WP_ULTIMO_KEY=Your-Key-Here
 ```
 
-**3. Require ACF PRO**
+**3. Require WP-ULTIMO**
 
 ```sh
-composer require advanced-custom-fields/advanced-custom-fields-pro:*
+composer require wp-ultimo/wp-ultimo:*
 ```
 You can specify an [exact version][composer-versions] (that matches your desired version).
 

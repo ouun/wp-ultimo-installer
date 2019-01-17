@@ -1,16 +1,16 @@
-<?php namespace PhilippBaschke\ACFProInstaller\Test;
+<?php namespace WPU\WPUltimoInstaller\Test;
 
 use Composer\Installer\PackageEvents;
 use Composer\Plugin\PluginEvents;
-use PhilippBaschke\ACFProInstaller\Plugin;
+use WPU\WPUltimoInstaller\Plugin;
 
 class PluginTest extends \PHPUnit_Framework_TestCase
 {
-    const REPO_NAME = 'advanced-custom-fields/advanced-custom-fields-pro';
+    const REPO_NAME = 'wp-ultimo/wp-ultimo';
     const REPO_TYPE = 'wordpress-plugin';
     const REPO_URL =
-      'https://connect.advancedcustomfields.com/index.php?p=pro&a=download';
-    const KEY_ENV_VARIABLE = 'ACF_PRO_KEY';
+	    'https://nextpress.co/versions/updates/?action=download&slug=wp-ultimo';
+    const KEY_ENV_VARIABLE = 'WP_ULTIMO_KEY';
 
     protected function tearDown()
     {

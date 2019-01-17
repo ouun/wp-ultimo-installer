@@ -1,7 +1,7 @@
-<?php namespace PhilippBaschke\ACFProInstaller\Exceptions;
+<?php namespace WPU\WPUltimoInstaller\Exceptions;
 
 /**
- * Exception thrown if the ACF PRO key is not available in the environment
+ * Exception thrown if the WP ULTIMO key is not available in the environment
  */
 class MissingKeyException extends \Exception
 {
@@ -11,7 +11,7 @@ class MissingKeyException extends \Exception
         \Exception $previous = null
     ) {
         parent::__construct(
-            'Could not find a key for ACF PRO. ' .
+            'Could not find a key for WP ULTIMO. ' .
             'Please make it available via the environment variable ' .
             $message,
             $code,

@@ -1,4 +1,4 @@
-<?php namespace PhilippBaschke\ACFProInstaller;
+<?php namespace WPU\WPUltimoInstaller;
 
 use Composer\Composer;
 use Composer\DependencyResolver\Operation\OperationInterface;
@@ -10,12 +10,12 @@ use Composer\Plugin\PluginEvents;
 use Composer\Plugin\PluginInterface;
 use Composer\Plugin\PreFileDownloadEvent;
 use Dotenv\Dotenv;
-use PhilippBaschke\ACFProInstaller\Exceptions\MissingKeyException;
+use WPU\WPUltimoInstaller\Exceptions\MissingKeyException;
 
 /**
- * A composer plugin that makes installing ACF PRO possible
+ * A composer plugin that makes installing WP ULTIMO possible
  *
- * The WordPress plugin Advanced Custom Fields PRO (ACF PRO) does not
+ * The WordPress plugin Advanced Custom Fields PRO (WP ULTIMO) does not
  * offer a way to install it via composer natively.
  *
  * This plugin uses a 'package' repository (user supplied) that downloads the
@@ -29,21 +29,21 @@ class Plugin implements PluginInterface, EventSubscriberInterface
 {
     /**
      * The name of the environment variable
-     * where the ACF PRO key should be stored.
+     * where the WP ULTIMO key should be stored.
      */
-    const KEY_ENV_VARIABLE = 'ACF_PRO_KEY';
+    const KEY_ENV_VARIABLE = 'WP_ULTIMO_KEY';
 
     /**
-     * The name of the ACF PRO package
+     * The name of the WP ULTIMO package
      */
-    const ACF_PRO_PACKAGE_NAME =
-    'advanced-custom-fields/advanced-custom-fields-pro';
+    const WP_ULTIMO_PACKAGE_NAME =
+    'wp-ultimo/wp-ultimo';
 
     /**
-     * The url where ACF PRO can be downloaded (without version and key)
+     * The url where WP ULTIMO can be downloaded (without version and key)
      */
-    const ACF_PRO_PACKAGE_URL =
-    'https://connect.advancedcustomfields.com/index.php?p=pro&a=download';
+    const WP_ULTIMO_PACKAGE_URL =
+    'https://nextpress.co/versions/updates/?action=download&slug=wp-ultimo&license_key=XXXX';
 
     /**
      * @access protected
@@ -111,7 +111,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     {
         $package = $this->getPackageFromOperation($event->getOperation());
 
-        if ($package->getName() === self::ACF_PRO_PACKAGE_NAME) {
+        if ($package->getName() === self::WP_ULTIMO_PACKAGE_NAME) {
             $version = $this->validateVersion($package->getPrettyVersion());
             $package->setDistUrl(
                 $this->addParameterToUrl($package->getDistUrl(), 't', $version)
@@ -125,7 +125,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      *
      * The key is not added to the package because it would show up in the
      * composer.lock file in this case. A custom file system is used to
-     * swap out the ACF PRO url with a url that contains the key.
+     * swap out the WP ULTIMO url with a url that contains the key.
      *
      * @access public
      * @param PreFileDownloadEvent $event The event that called this method
@@ -188,7 +188,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
 
         if (!preg_match($major_minor_patch_optional, $version)) {
             throw new \UnexpectedValueException(
-                'The version constraint of ' . self::ACF_PRO_PACKAGE_NAME .
+                'The version constraint of ' . self::WP_ULTIMO_PACKAGE_NAME .
                 ' should be exact (with 3 or 4 digits). ' .
                 'Invalid version string "' . $version . '"'
             );
@@ -198,7 +198,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     }
 
     /**
-     * Test if the given url is the ACF PRO download url
+     * Test if the given url is the WP ULTIMO download url
      *
      * @access protected
      * @param string The url that should be checked
@@ -206,11 +206,11 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      */
     protected function isAcfProPackageUrl($url)
     {
-        return strpos($url, self::ACF_PRO_PACKAGE_URL) !== false;
+        return strpos($url, self::WP_ULTIMO_PACKAGE_URL) !== false;
     }
 
     /**
-     * Get the ACF PRO key from the environment
+     * Get the WP ULTIMO key from the environment
      *
      * Loads the .env file that is in the same directory as composer.json
      * and gets the key from the environment variable KEY_ENV_VARIABLE.

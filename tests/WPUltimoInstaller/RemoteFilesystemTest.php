@@ -1,6 +1,6 @@
-<?php namespace PhilippBaschke\ACFProInstaller\Test;
+<?php namespace WPU\WPUltimoInstaller\Test;
 
-use PhilippBaschke\ACFProInstaller\RemoteFilesystem;
+use WPU\WPUltimoInstaller\RemoteFilesystem;
 
 class RemoteFilesystemTest extends \PHPUnit_Framework_TestCase
 {
