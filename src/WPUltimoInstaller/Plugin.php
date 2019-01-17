@@ -133,9 +133,9 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     {
         $processedUrl = $event->getProcessedUrl();
 
-        if ($this->isAcfProPackageUrl($processedUrl)) {
+        if ($this->isUltimoPackageUrl($processedUrl)) {
             $rfs = $event->getRemoteFilesystem();
-            $acfRfs = new RemoteFilesystem(
+            $wpuRfs = new RemoteFilesystem(
                 $this->addParameterToUrl(
                     $processedUrl,
                     'license_key',
@@ -146,7 +146,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
                 $rfs->getOptions(),
                 $rfs->isTlsDisabled()
             );
-            $event->setRemoteFilesystem($acfRfs);
+            $event->setRemoteFilesystem($wpuRfs);
         }
     }
 
@@ -202,7 +202,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
      * @param string The url that should be checked
      * @return bool
      */
-    protected function isAcfProPackageUrl($url)
+    protected function isUltimoPackageUrl($url)
     {
         return strpos($url, self::WP_ULTIMO_PACKAGE_URL) !== false;
     }
