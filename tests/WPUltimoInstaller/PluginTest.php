@@ -970,7 +970,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
         // Expect an Exception
         $this->setExpectedException(
             'WPU\WPUltimoInstaller\Exceptions\MissingKeyException',
-            'ACF_PRO_KEY'
+            'WP_ULTIMO_KEY'
         );
 
         // Mock a RemoteFilesystem
