@@ -112,7 +112,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
         if ($package->getName() === self::WP_ULTIMO_PACKAGE_NAME) {
             $version = $this->validateVersion($package->getPrettyVersion());
             $package->setDistUrl(
-                $this->addParameterToUrl($package->getDistUrl(), 't', $version)
+                $this->addParameterToUrl($package->getDistUrl(), 'version', $version)
             );
         }
     }
