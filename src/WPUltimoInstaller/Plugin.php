@@ -41,7 +41,7 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     /**
      * The url where WP ULTIMO can be downloaded (without version and key)
      */
-    const WP_ULTIMO_PACKAGE_URL = 'https://nextpress.co/versions/updates/?action=download&slug=wp-ultimo';
+    const WP_ULTIMO_PACKAGE_URL = 'https://versions.nextpress.co/updates?action=download&slug=wp-ultimo';
 
     /**
      * @access protected
