@@ -8,7 +8,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
 {
     const REPO_NAME = 'wp-ultimo/wp-ultimo';
     const REPO_TYPE = 'wordpress-plugin';
-    const REPO_URL = 'https://nextpress.co/versions/updates/?action=download&slug=wp-ultimo';
+    const REPO_URL = 'https://versions.nextpress.co/updates?action=download&slug=wp-ultimo';
     const KEY_ENV_VARIABLE = 'WP_ULTIMO_KEY';
 
     protected function tearDown()
@@ -115,7 +115,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
         $package
             ->expects($this->once())
             ->method('setDistUrl')
-            ->with(self::REPO_URL . "&t=$version");
+            ->with(self::REPO_URL . "&version=$version");
 
         // Mock an Operation
         $operationClass =
