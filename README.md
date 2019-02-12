@@ -20,7 +20,7 @@ It reads your :key: WP-ULTIMO key from the **environment** or a **.env file**.
     "type": "wordpress-plugin",
     "dist": {
       "type": "zip",
-      "url": "https://nextpress.co/versions/updates/?action=download&slug=wp-ultimo"
+      "url": "https://versions.nextpress.co/updates?action=download&slug=wp-ultimo"
     },
     "require": {
       "ouun/wp-ultimo-installer": "^1.0",
